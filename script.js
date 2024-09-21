@@ -28,6 +28,17 @@ function addTaskToDOM(task) {
     span.textContent = task.text;
     li.appendChild(span);
 
+    // Toggle completion
+    span.addEventListener('click', () => {
+	console.log('completed task', task);
+        task.completed = !task.completed;
+        if (task.completed) {
+            li.classList.add('completed');
+        } else {
+            li.classList.remove('completed');
+        }
+    });
+	
     taskList.appendChild(li);
 
 }
