@@ -39,6 +39,19 @@ function addTaskToDOM(task) {
         }
     });
 	
+    // Delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    li.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', () => {
+        const index = tasks.findIndex(t => t.id === task.id);
+        if (index !== -1) {
+            tasks.splice(index, 1);
+            taskList.removeChild(taskList.children[task.id]);
+        }
+    });
+
     taskList.appendChild(li);
 
 }
